@@ -13,7 +13,7 @@ import { clearErrors, getErrors } from "./errorActions";
 
 export const registerUser = user => dispatch => {
   axios
-    .post("http://localhost:5000/user", user)
+    .post("/user", user)
     .then(res => {
       dispatch(clearErrors());
       dispatch(registerSuccess(res.data));
@@ -28,7 +28,7 @@ export const registerUser = user => dispatch => {
 
 export const loginUser = user => dispatch => {
   axios
-    .post("http://localhost:5000/auth", user)
+    .post("/auth", user)
     .then(res => {
       dispatch(clearErrors());
       dispatch(loginSuccess(res.data));
@@ -51,7 +51,7 @@ export const loadUser = () => (dispatch, getState) => {
   if (token) config.headers["x-auth-token"] = token;
 
   axios
-    .get("http://localhost:5000/auth/user", config)
+    .get("/auth/user", config)
     .then(res => {
       dispatch(clearErrors());
       dispatch(userLoadSuccess(res.data));

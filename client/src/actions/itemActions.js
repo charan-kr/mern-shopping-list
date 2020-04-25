@@ -29,7 +29,7 @@ export const addItem = item => (dispatch, getState) => {
   if (token) config.headers["x-auth-token"] = token;
 
   axios
-    .post("http://localhost:5000/items", item, config)
+    .post("/items", item, config)
     .then(response => {
       dispatch({
         type: ADD_ITEM,
@@ -60,7 +60,7 @@ export const deleteItem = id => (dispatch, getState) => {
   };
   if (token) config.headers["x-auth-token"] = token;
   axios
-    .delete(`http://localhost:5000/items/${id}`, config)
+    .delete(`/items/${id}`, config)
     .then(response => {
       dispatch({
         type: DELETE_ITEM,
