@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://charan:@1RE13ee017@cluster-mern-shopping-list-pjgnp.mongodb.net/ShoppingListDB?retryWrites=true&w=majority",
+  "jwtSecret": "SecretCode_cannot_be_shared"
+}
