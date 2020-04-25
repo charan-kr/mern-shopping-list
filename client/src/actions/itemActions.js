@@ -9,7 +9,7 @@ import axios from "axios";
 
 export const getItems = () => dispatch => {
   axios
-    .get("http://localhost:5000/items")
+    .get("/items")
     .then(response =>
       dispatch({
         type: GET_ITEMS,
