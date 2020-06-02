@@ -6,6 +6,7 @@ import {
   CLEAR_ERRORS
 } from "./types";
 import axios from "axios";
+import { getErrors } from "../actions/errorActions";
 
 export const getItems = () => dispatch => {
   axios
@@ -16,7 +17,7 @@ export const getItems = () => dispatch => {
         payload: response.data
       })
     )
-    .catch(err => console.log(err.response));
+    .catch(err => dispatch(getErrors(null, null, "SERVER_ERROR")));
 };
 
 export const addItem = item => (dispatch, getState) => {

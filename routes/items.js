@@ -9,8 +9,8 @@ const auth = require("../middleware/auth");
 // @Access      : PUBLIC
 router.get("/", (req, res) => {
   Item.find()
-    .then(items => res.json(items))
-    .catch(err => res.status(400).json({ msg: "Error Loading data" }));
+    .then((items) => res.json(items))
+    .catch((err) => res.status(400).json({ msg: "Error Loading data" }));
 });
 
 // @Path        : /items
@@ -18,13 +18,12 @@ router.get("/", (req, res) => {
 // @Access      : PRIVATE
 router.post("/", auth, (req, res) => {
   const newItem = new Item({
-    name: req.body.name
+    name: req.body.name,
   });
-
   newItem
     .save()
-    .then(item => res.json(item))
-    .catch(err => res.status(400).json({ msg: "Failed to add Item" }));
+    .then((item) => res.json(item))
+    .catch((err) => res.status(400).json({ msg: "Failed to add Item" }));
 });
 
 // @Path        : /items/:id
@@ -32,8 +31,8 @@ router.post("/", auth, (req, res) => {
 // @Access      : PRIVATE
 router.delete("/:id", auth, (req, res) => {
   Item.deleteOne({ _id: req.params.id })
-    .then(response => res.json({ msg: "Deleted" }))
-    .catch(err => res.status(400).json({ msg: "Delete Action failed", err }));
+    .then((response) => res.json({ msg: "Deleted" }))
+    .catch((err) => res.status(400).json({ msg: "Delete Action failed", err }));
 });
 
 module.exports = router;

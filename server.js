@@ -11,7 +11,7 @@ const db = config.get("mongoURI");
 mongoose.connect(db, {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 //mongodb status
@@ -33,14 +33,14 @@ app.use("/user", require("./routes/user"));
 app.use("/auth", require("./routes/auth"));
 
 //Serve static assests if in production
-app.use(express.static("client/build"));
+app.use("/static", express.static(path.join(__dirname, "client/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+// });
 
 //localhost:5000 port
-
 const PORT = process.env.PORT || 5000;
+
 //start listentning on the port
 app.listen(PORT, () => console.log(`listening @ PORT : ${PORT}`));

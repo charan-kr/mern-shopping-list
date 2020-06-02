@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+
 import {
   Collapse,
   Navbar,
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem
+  NavItem,
+  NavLink
 } from "reactstrap";
-import Register from "./Register";
-import Login from "./Login";
 import Logout from "./Logout";
 import { useSelector } from "react-redux";
 
@@ -26,16 +26,20 @@ function Navigation() {
         <Collapse isOpen={!collapsed} navbar>
           <Nav navbar>
             {!auth ? (
-              <>
-                <NavItem>
-                  <Register />
-                </NavItem>
-                <NavItem>
-                  <Login />
-                </NavItem>
-              </>
-            ) : (
               <NavItem>
+                <NavLink
+                  style={{
+                    cursor: "pointer",
+                    width: "fit-content",
+                    float: "right"
+                  }}
+                  href="/auth"
+                >
+                  SIGNUP/SIGNIN
+                </NavLink>
+              </NavItem>
+            ) : (
+              <NavItem className="d-flex">
                 <Logout />
               </NavItem>
             )}
