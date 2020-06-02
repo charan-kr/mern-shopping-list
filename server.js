@@ -35,9 +35,9 @@ app.use("/auth", require("./routes/auth"));
 //Serve static assests if in production
 app.use("/static", express.static(path.join(__dirname, "client/build")));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
 //localhost:5000 port
 const PORT = process.env.PORT || 5000;
