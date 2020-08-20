@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://charan:@1RE13ee017@cluster-mern-shopping-list-pjgnp.mongodb.net/ShoppingListDB?retryWrites=true&w=majority",
-  "jwtSecret": "SecretCode_cannot_be_shared"
+  "mongoURI": "mongodb+srv://<username>:<password>@<cluster-name>.mongodb.net/<mongodb-path>?retryWrites=true&w=majority",
+  "jwtSecret": "<your jsonwebtoken secret code>"
 }
